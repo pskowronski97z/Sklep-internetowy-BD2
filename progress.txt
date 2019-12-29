@@ -14,7 +14,21 @@ Addresses:
 ProductsInStore:
 - SerialNumber z int va varchar
 
-Widoki, triggery oraz procedury są zaktualizowane. ~Patryk
+Widoki, triggery oraz procedury są zaktualizowane. 
+
+Opis danych do testów.
+
+Klienci:
+- Miasta -> CityXXX 	
+- Ulice - > StreetXX
+- Budynki -> BXX
+- Lokale -> AXX
+- Kody pocztowe -> XX-XXX
+
+Gdzie ilość X'ów odpowiada ilości cyfr liczby losowej.
+Dzięki temu mamy łatwą identyfikację danych oraz
+ich wymaganą powtarzalność. Wydaje mi się że jest
+to w miarę sensowne. ~Patryk
 
 
 
