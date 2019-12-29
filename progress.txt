@@ -1,0 +1,20 @@
+Podczas poprzedniego generowania danych uznałem
+że przyda się jeszcze kilka drobnych poprawek samej bazy. 
+Zmieniłem nazwy tabel na liczbę mnogą oraz niektóre
+typy i nazwy zmiennych w tabelach:
+
+Customers:
+- PhoneNumber z int na varchar (tak samo w Employees)
+- BasketValue z float na decimal ( 2 liczby po przecinku, 6 przed )
+( zmieniłem format cen wszędzie tam gdzie były )
+
+Addresses:
+- PostCode z int na varchar
+
+ProductsInStore:
+- SerialNumber z int va varchar
+
+Widoki, triggery oraz procedury są zaktualizowane. ~Patryk
+
+
+
