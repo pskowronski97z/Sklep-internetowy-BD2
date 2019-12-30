@@ -7,7 +7,7 @@
     CREATE TABLE Employees (Id int(10) NOT NULL AUTO_INCREMENT, FirstName varchar(30) NOT NULL, LastName varchar(30) NOT NULL, PhoneNumber varchar(20) NOT NULL, Salary int(5) NOT NULL, Email varchar(50) NOT NULL, HireDate date NOT NULL, AddressId int(10) NOT NULL, Password varchar(15) NOT NULL, Login varchar(15) NOT NULL UNIQUE, PRIMARY KEY (Id));
     CREATE TABLE Invoices (Id int(10) NOT NULL AUTO_INCREMENT, InvoiceDate date NOT NULL, SaleDate date NOT NULL, ValueBrutto decimal(8, 2) NOT NULL, TaxRate int(2) NOT NULL, NIP int(10) NOT NULL, CustomerId int(10) NOT NULL, PRIMARY KEY (Id), INDEX (NIP));
     CREATE TABLE OrderedProducts (OrderId int(10) NOT NULL, ProductId int(10) NOT NULL, AmountInOrder int(5) DEFAULT 1 NOT NULL, PRIMARY KEY (OrderId, ProductId));
-    CREATE TABLE Orders (Id int(10) NOT NULL AUTO_INCREMENT, SaleDate date NOT NULL, Value int(1) DEFAULT 0 NOT NULL, Status varchar(30) NOT NULL, CustomerId int(10) NOT NULL, InvoiceId int(10), AddressId int(10), PRIMARY KEY (Id), INDEX (SaleDate), INDEX (Status), INDEX (CustomerId));
+    CREATE TABLE Orders (Id int(10) NOT NULL AUTO_INCREMENT, SaleDate date NOT NULL, Value decimal(8, 2) DEFAULT 0 NOT NULL, Status varchar(30) NOT NULL, CustomerId int(10) NOT NULL, InvoiceId int(10), AddressId int(10), PRIMARY KEY (Id), INDEX (SaleDate), INDEX (Status), INDEX (CustomerId));
     CREATE TABLE Products (Id int(10) NOT NULL AUTO_INCREMENT, Price decimal(8, 2) NOT NULL, Name varchar(60) NOT NULL, Description varchar(10000), CategoryId int(10) NOT NULL, DiscountId int(10), FieldValue1 int(4), FieldValue2 int(4), FieldValue3 int(4), FieldValue4 int(4), FieldValue5 varchar(100), FieldValue6 varchar(100), FieldValue7 varchar(100), FieldValue8 varchar(100), AmountInStore int(10) DEFAULT 0 NOT NULL, ProducerName varchar(100), PRIMARY KEY (Id), INDEX (Price), INDEX (Name), INDEX (CategoryId));
     CREATE TABLE ProductsInStore (Id int(10) NOT NULL AUTO_INCREMENT, ProductId int(10) NOT NULL, Status varchar(30) NOT NULL, Rack int(3) NOT NULL, Shelf int(1) NOT NULL, Price decimal(8, 2) DEFAULT 0 NOT NULL, OrderId int(10), SerialNumber varchar(20) NOT NULL, PRIMARY KEY (Id), INDEX (ProductId), INDEX (Status));
     ALTER TABLE Baskets ADD CONSTRAINT `Basket contains products` FOREIGN KEY (ProductId) REFERENCES Products (Id);
@@ -28,8 +28,9 @@
 
 
 
+
 -- WIDOKI
---> widok przechowujący najpopularniejsze produkty:
+-- widok przechowujący najpopularniejsze produkty:
     CREATE VIEW Top_products AS 
         SELECT Products.Id, Products.Name, Products.ProducerName, Products.AmountInStore AS In_store, SUM(OrderedProducts.AmountInOrder) AS Sold 
             FROM Products 
@@ -37,20 +38,20 @@
         GROUP BY OrderedProducts.ProductId 
         ORDER BY SUM(OrderedProducts.AmountInOrder) DESC;
 
---> widok przechowujący wszystkich pracowników i ich zniżki:
+-- widok przechowujący wszystkich pracowników i ich zniżki:
     CREATE VIEW Employee_discount AS
         SELECT Employees.Id, Employees.LastName
             FROM Employees
             JOIN Discounts ON Employees.Id = Discounts.EmployeeId
         ORDER BY Employees.LastName;
 
---> widok przechowujący informacje o wszystkich zamówieniach w trakcie realizacji: 
+-- widok przechowujący informacje o wszystkich zamówieniach w trakcie realizacji: 
     CREATE VIEW Orders_in_progress AS
         SELECT Id, Value, CustomerId, InvoiceId, AddressId, SaleDate
             FROM Orders
         WHERE Status = 'Realizowane';
 
---> widok przechowujący informacje których produktów brak na magazynie:
+-- widok przechowujący informacje których produktów brak na magazynie:
     CREATE VIEW Products_sell_out AS
         SELECT Products.Id, Products.Name, Categories.Name as Categories, Products.ProducerName
             FROM Products
@@ -58,22 +59,22 @@
         WHERE Products.AmountInStore = 0
         ORDER BY Categories.Name;
 
---> widok przechowujący informacje o zwróconych produktach: 
+-- widok przechowujący informacje o zwróconych produktach: 
    CREATE VIEW Returned_products AS
         SELECT Id, ProductId, Rack, Shelf, Price, SerialNumber
             FROM ProductsInStore
         WHERE Status = 'Zwrocony';
 
---------------------------------------------------------------------------------------------------------------------------------------------------
---PROCEDURY SKŁADOWE
---> procedura przeceniająca produkty
+
+-- PROCEDURY SKŁADOWE
+-- procedura przeceniająca produkty
    CREATE PROCEDURE Make_discount
         (IN discountID int(10))
         UPDATE Products
             SET Price = Price*(1 - (SELECT Percentage FROM Discounts WHERE Id = discountID))
         WHERE Products.DiscountId = discountID;
    
---> procedura przenosząca produkty z koszyka do zamówienia
+-- procedura przenosząca produkty z koszyka do zamówienia
    delimiter //
    CREATE PROCEDURE Basket_to_order
         (IN customerID int(10), IN orderID int(10))
@@ -86,10 +87,10 @@
         END//
     delimiter ;
 
-------------------------------------------------------------------------------------
 
---WYZWALACZE
---> powieksza wartosc koszyka w chwili dodania nowego produktu
+
+-- WYZWALACZE
+-- powieksza wartosc koszyka w chwili dodania nowego produktu
    delimiter //
    CREATE TRIGGER Add_to_basket AFTER INSERT ON Baskets
    FOR EACH ROW BEGIN
@@ -101,7 +102,7 @@
    END//
    delimiter ;
 
---> zmniejszajacy wartosc po usunieciu calego rekordu
+-- zmniejszajacy wartosc po usunieciu calego rekordu
    delimiter //
    CREATE TRIGGER Remove_from_basket AFTER DELETE ON Baskets
    FOR EACH ROW BEGIN
@@ -110,7 +111,7 @@
    END//
    delimiter ;
 
---> modyfikacja wartosci koszyka po modyfikacji ilosci zamowienia
+-- modyfikacja wartosci koszyka po modyfikacji ilosci zamowienia
    delimiter //
    CREATE TRIGGER Update_basket AFTER UPDATE ON Baskets
    FOR EACH ROW BEGIN
@@ -119,7 +120,7 @@
    END//
    delimiter ;
 
---> powieksza wartosc zamowienia w chwili dodania nowego produktu
+-- powieksza wartosc zamowienia w chwili dodania nowego produktu
    delimiter //
    CREATE TRIGGER Add_to_order AFTER INSERT ON OrderedProducts
    FOR EACH ROW BEGIN
@@ -128,7 +129,7 @@
    END//
    delimiter ;
 
---> zmniejszajacy wartosc zamowienia po usunieciu calego rekordu
+-- zmniejszajacy wartosc zamowienia po usunieciu calego rekordu
     delimiter //
     CREATE TRIGGER Remove_from_order AFTER DELETE ON OrderedProducts
     FOR EACH ROW BEGIN
@@ -137,7 +138,7 @@
    END//
    delimiter ;
 
---> modyfikujacy wartosc zamowienia po modyfikacji ilosci produktow w zamowieniau//zsprawdzic ten !!!!
+-- modyfikujacy wartosc zamowienia po modyfikacji ilosci produktow w zamowieniu
    delimiter //
    CREATE TRIGGER Update_order AFTER UPDATE ON OrderedProducts
    FOR EACH ROW BEGIN
