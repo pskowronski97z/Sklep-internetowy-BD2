@@ -138,7 +138,11 @@
    END//
    delimiter ;
 
+<<<<<<< HEAD
 -- modyfikujacy wartosc zamowienia po modyfikacji ilosci produktow w zamowieniu
+=======
+-- modyfikujacy wartosc zamowienia po modyfikacji ilosci produktow w zamowieniau//zsprawdzic ten !!!!
+>>>>>>> 1becf23be32a30dd900b5521186ac83d317e76d1
    delimiter //
    CREATE TRIGGER Update_order AFTER UPDATE ON OrderedProducts
    FOR EACH ROW BEGIN
