@@ -1,34 +1,10 @@
-Podczas poprzedniego generowania danych uznałem
-że przyda się jeszcze kilka drobnych poprawek samej bazy. 
-Zmieniłem nazwy tabel na liczbę mnogą oraz niektóre
-typy i nazwy zmiennych w tabelach:
-
-Customers:
-- PhoneNumber z int na varchar (tak samo w Employees)
-- BasketValue z float na decimal ( 2 liczby po przecinku, 6 przed )
-( zmieniłem format cen wszędzie tam gdzie były )
-
-Addresses:
-- PostCode z int na varchar
-
-ProductsInStore:
-- SerialNumber z int va varchar
-
-Widoki, triggery oraz procedury są zaktualizowane. 
-
-Opis danych do testów.
-
-Klienci:
-- Miasta -> CityXXX 	
-- Ulice - > StreetXX
-- Budynki -> BXX
-- Lokale -> AXX
-- Kody pocztowe -> XX-XXX
-
-Gdzie ilość X'ów odpowiada ilości cyfr liczby losowej.
-Dzięki temu mamy łatwą identyfikację danych oraz
-ich wymaganą powtarzalność. Wydaje mi się że jest
-to w miarę sensowne. ~Patryk
-
+Wstępnie ogarnąłem rejestrację użytkownika,
+żeby odpalić apkę trzeba w pliku WebConfig.conf 
+podmienić nazwę bazy w ConnectionString na
+nazwę swojej lokalnej, w moim przypadku ta zawa to "shop".
+Następnie w konsoli Packet Managera trzeba klepnąć
+komendę update-database, powinno (przynajmniej w teorii)
+się pomyślnie wykonać. Jeżeli tak się stało to można już dać
+klapsa w przycisk Compile and Run.
 
 
