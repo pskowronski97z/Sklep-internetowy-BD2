@@ -6,9 +6,17 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="Customers/Registration">Rejestracja</a>
-            </li>
+            @*star wersja psual sie kiedy dwa razy klinelismy w link z navbara*@
+            @*<li class="nav-item">
+            <a class="nav-link" href="/Products/Index">Produkty</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Customers/Registration">Rejestracja</a>
+        </li>*@
+
+            <li class="nav-item">@Html.ActionLink("Produkty", "Index", "Products",null,new { @class = "nav-link" })</li>
+            <li class="nav-item">@Html.ActionLink("Rejestracja", "Registration", "Customers",null,new { @class = "nav-link" })</li>
+
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">

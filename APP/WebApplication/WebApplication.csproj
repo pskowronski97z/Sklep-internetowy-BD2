@@ -153,6 +153,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -160,10 +161,24 @@
     <Compile Include="Migrations\202001122146462_DataAnnotations.Designer.cs">
       <DependentUpon>202001122146462_DataAnnotations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001141217560_Products.cs" />
+    <Compile Include="Migrations\202001141217560_Products.Designer.cs">
+      <DependentUpon>202001141217560_Products.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001141226200_CategoryFillWithData.cs" />
+    <Compile Include="Migrations\202001141226200_CategoryFillWithData.Designer.cs">
+      <DependentUpon>202001141226200_CategoryFillWithData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001141236031_ProductsFillWithData.cs" />
+    <Compile Include="Migrations\202001141236031_ProductsFillWithData.Designer.cs">
+      <DependentUpon>202001141236031_ProductsFillWithData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DataContext.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +219,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Customers\Registration.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -224,6 +241,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202001122146462_DataAnnotations.resx">
       <DependentUpon>202001122146462_DataAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001141217560_Products.resx">
+      <DependentUpon>202001141217560_Products.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001141226200_CategoryFillWithData.resx">
+      <DependentUpon>202001141226200_CategoryFillWithData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001141236031_ProductsFillWithData.resx">
+      <DependentUpon>202001141236031_ProductsFillWithData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

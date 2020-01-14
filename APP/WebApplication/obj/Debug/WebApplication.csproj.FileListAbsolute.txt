@@ -201,3 +201,6 @@ C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP\WebApplication\obj\Debug\WebAp
 C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP\WebApplication\obj\Debug\WebApplication.csproj.CopyComplete
 C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP\WebApplication\obj\Debug\WebApplication.dll
 C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP\WebApplication\obj\Debug\WebApplication.pdb
+C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP\WebApplication\obj\Debug\WebApplication.Migrations.Products.resources
+C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP\WebApplication\obj\Debug\WebApplication.Migrations.CategoryFillWithData.resources
+C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP\WebApplication\obj\Debug\WebApplication.Migrations.ProductsFillWithData.resources
