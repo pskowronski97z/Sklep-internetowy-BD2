@@ -98,5 +98,5 @@ C:\Users\Patryk\source\repos\Sklep-internetowy-BD2\APP\WebApplication\obj\Debug\
 C:\Users\Patryk\source\repos\Sklep-internetowy-BD2\APP\WebApplication\obj\Debug\WebApplication.csproj.CopyComplete
 C:\Users\Patryk\source\repos\Sklep-internetowy-BD2\APP\WebApplication\obj\Debug\WebApplication.dll
 C:\Users\Patryk\source\repos\Sklep-internetowy-BD2\APP\WebApplication\obj\Debug\WebApplication.pdb
-C:\Users\Patryk\source\repos\Sklep-internetowy-BD2\APP\WebApplication\obj\Debug\WebApplication.Migrations.AddressesAndClients.resources
+C:\Users\Patryk\source\repos\Sklep-internetowy-BD2\APP\WebApplication\obj\Debug\WebApplication.Migrations.DataAnnotations.resources
 C:\Users\Patryk\source\repos\Sklep-internetowy-BD2\APP\WebApplication\obj\Debug\WebApplication.csproj.GenerateResource.cache

@@ -156,9 +156,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001031710459_AddressesAndClients.cs" />
-    <Compile Include="Migrations\202001031710459_AddressesAndClients.Designer.cs">
-      <DependentUpon>202001031710459_AddressesAndClients.cs</DependentUpon>
+    <Compile Include="Migrations\202001122146462_DataAnnotations.cs" />
+    <Compile Include="Migrations\202001122146462_DataAnnotations.Designer.cs">
+      <DependentUpon>202001122146462_DataAnnotations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
@@ -221,8 +221,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001031710459_AddressesAndClients.resx">
-      <DependentUpon>202001031710459_AddressesAndClients.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001122146462_DataAnnotations.resx">
+      <DependentUpon>202001122146462_DataAnnotations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
