@@ -29,6 +29,11 @@ namespace WebApplication.Controllers
             return View(new Customer());
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         public ActionResult Index()
         {
             var customers = _context.Customers.ToList();
