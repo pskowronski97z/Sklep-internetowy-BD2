@@ -173,12 +173,19 @@
     <Compile Include="Migrations\202001141236031_ProductsFillWithData.Designer.cs">
       <DependentUpon>202001141236031_ProductsFillWithData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001160920347_CustomersFillWithData.cs" />
+    <Compile Include="Migrations\202001160920347_CustomersFillWithData.Designer.cs">
+      <DependentUpon>202001160920347_CustomersFillWithData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Basket.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DataContext.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductsInStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +228,7 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -250,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001141236031_ProductsFillWithData.resx">
       <DependentUpon>202001141236031_ProductsFillWithData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001160920347_CustomersFillWithData.resx">
+      <DependentUpon>202001160920347_CustomersFillWithData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

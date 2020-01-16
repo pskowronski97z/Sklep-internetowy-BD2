@@ -29,6 +29,12 @@ namespace WebApplication.Controllers
             return View(new Customer());
         }
 
+        public ActionResult Index()
+        {
+            var customers = _context.Customers.ToList();
+            return View(customers);
+        }
+
         [HttpPost]
         public ActionResult NewCustomer(Customer customer, Address address)
         {
