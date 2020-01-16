@@ -50,6 +50,6 @@ namespace WebApplication.Models
         [StringLength(60)]
         public string Login { get; set; }
 
-        
+        public ICollection<Basket> Baskets { get; set; }
     }
 }

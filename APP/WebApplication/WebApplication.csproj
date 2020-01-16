@@ -177,6 +177,14 @@
     <Compile Include="Migrations\202001160920347_CustomersFillWithData.Designer.cs">
       <DependentUpon>202001160920347_CustomersFillWithData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001160950444_AllModels.cs" />
+    <Compile Include="Migrations\202001160950444_AllModels.Designer.cs">
+      <DependentUpon>202001160950444_AllModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001161009180_AllModelsUpdate.cs" />
+    <Compile Include="Migrations\202001161009180_AllModelsUpdate.Designer.cs">
+      <DependentUpon>202001161009180_AllModelsUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Basket.cs" />
@@ -185,7 +193,6 @@
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ProductsInStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +268,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001160920347_CustomersFillWithData.resx">
       <DependentUpon>202001160920347_CustomersFillWithData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001160950444_AllModels.resx">
+      <DependentUpon>202001160950444_AllModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001161009180_AllModelsUpdate.resx">
+      <DependentUpon>202001161009180_AllModelsUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

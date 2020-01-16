@@ -49,5 +49,7 @@ namespace WebApplication.Models
         public int AmountInStore { get; set; }
 
         public String ProducerName { get; set; }
+
+        public ICollection<Basket> Baskets { get; set; }
     }
 }
