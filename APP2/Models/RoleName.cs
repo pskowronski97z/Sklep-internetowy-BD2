@@ -7,6 +7,8 @@ namespace ShopLogin.Models
 {
     public static class RoleName
     {
-        public const string RoleAdmin = "RoleAdmin";
+        public const string RoleAdmin = "Admin";
+        public const string RoleClient = "Client";
+        public const string RoleAny = "Admin, Client";
     }
 }

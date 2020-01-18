@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ShopLogin.Models.Basket>
+
+@{
+    ViewBag.Title = "Baskets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Twój koszyk</h2>
+@if (!Model.Any())
+{
+    <p>Twój koszyk jest pusty.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Produkt</th>
+                <th>Ilość</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var basket in Model)
+            {
+                <tr>
+                    <td>@basket.ProductId</td>
+                    <td>@basket.AmountInBasket</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

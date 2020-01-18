@@ -25,7 +25,7 @@ else
                 <tr>
                     <td>@Html.ActionLink(product.Name, "Details", "Products", new { id = product.Id }, null)</td>
                     <td>@product.Category.Name</td>
-                    <td>@Html.ActionLink("Dodaj do koszyka", "", "", null, null)</td>
+                    <td>@Html.ActionLink("Dodaj do koszyka", "AddToBasket", "Baskets", new { productId = product.Id }, null)</td>
                 </tr>
             }
         </tbody>

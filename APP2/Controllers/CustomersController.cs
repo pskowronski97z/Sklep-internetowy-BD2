@@ -9,7 +9,8 @@ using ShopLogin.Models;
 
 namespace ShopLogin.Controllers
 {
-    [Authorize(Roles = RoleName.RoleAdmin)]
+
+    [Authorize]
     public class CustomersController : Controller
     {
 
@@ -28,6 +29,7 @@ namespace ShopLogin.Controllers
             _context.Dispose();
         }
 
+        [Authorize(Roles =RoleName.RoleClient)]
         public ActionResult Details()
         {
             ApplicationUser user = UserManager.FindById(User.Identity.GetUserId());
@@ -43,6 +45,8 @@ namespace ShopLogin.Controllers
             
             return View(new Customer());
         }
+
+        
 
         
         public ActionResult Index()

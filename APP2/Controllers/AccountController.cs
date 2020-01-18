@@ -79,7 +79,8 @@ namespace ShopLogin.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInByLoginOrEmail(model);
+            
             switch (result)
             {
                 case SignInStatus.Success:
@@ -93,6 +94,18 @@ namespace ShopLogin.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
+        }
+
+        private async Task<SignInStatus> SignInByLoginOrEmail(LoginViewModel model)
+        {
+            Customer customer = _context.Customers.FirstOrDefault(c => c.Login == model.Email);
+            if(customer != null)
+            {
+                ApplicationUser user = UserManager.FindById(customer.UserId);
+                return await SignInManager.PasswordSignInAsync(user.Email, model.Password, model.RememberMe, shouldLockout: false);
+            }
+            
+            return await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
         }
 
         //
@@ -167,10 +180,10 @@ namespace ShopLogin.Controllers
 
                 if (result.Succeeded)
                 {
-                    //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
-                    //var roleManager = new RoleManager<IdentityRole>(roleStore);
-                    //await roleManager.CreateAsync(new IdentityRole(RoleName.RoleAdmin));
-                    //await UserManager.AddToRoleAsync(user.Id, RoleName.RoleAdmin);
+                    var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                    var roleManager = new RoleManager<IdentityRole>(roleStore);
+                    await roleManager.CreateAsync(new IdentityRole(RoleName.RoleClient));
+                    await UserManager.AddToRoleAsync(user.Id, RoleName.RoleClient);
 
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
