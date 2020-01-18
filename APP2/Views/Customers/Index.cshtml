@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ShopLogin.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+@if (!Model.Any())
+{
+    <p>W naszej bazie nie ma żadnych klientów.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Klient</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@customer.FirstName @customer.LastName</td>
+                    @*<td>@Html.ActionLink(customer.FirstName, "Details", "Products", new { id = customer.Id }, null)</td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+}

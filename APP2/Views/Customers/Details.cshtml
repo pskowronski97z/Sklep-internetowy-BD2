@@ -1,0 +1,29 @@
+﻿@model ShopLogin.Models.Customer
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Field name</th>
+            <th>Field value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Imie</td>
+            <td>@Model.FirstName</td>
+        </tr>
+       
+        <tr>
+            <td>Nazwisko</td>
+            <td>@Model.LastName</td>
+        </tr>
+
+    </tbody>
+
+</table>

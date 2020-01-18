@@ -1,0 +1,85 @@
+﻿@model ShopLogin.Models.Product
+
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Szczegóły</h2>
+<p>Cena: @Model.Price zł</p>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Field name</th>
+            <th>Field value</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (@Model.Category.FieldName1 != null)
+        {
+            <tr>
+                <td>@Model.Category.FieldName1</td>
+                <td>@Model.FieldValue1</td>
+            </tr>
+        }
+
+        @if (@Model.Category.FieldName2 != null)
+        {
+            <tr>
+                <td>@Model.Category.FieldName2</td>
+                <td>@Model.FieldValue2</td>
+            </tr>
+        }
+
+        @if (@Model.Category.FieldName3 != null)
+        {
+            <tr>
+                <td>@Model.Category.FieldName3</td>
+                <td>@Model.FieldValue3</td>
+            </tr>
+        }
+
+        @if (@Model.Category.FieldName4 != null)
+        {
+            <tr>
+                <td>@Model.Category.FieldName4</td>
+                <td>@Model.FieldValue4</td>
+            </tr>
+        }
+
+        @if (@Model.Category.FieldName5 != null)
+        {
+            <tr>
+                <td>@Model.Category.FieldName5</td>
+                <td>@Model.FieldValue5</td>
+            </tr>
+        }
+
+        @if (@Model.Category.FieldName6 != null)
+        {
+            <tr>
+                <td>@Model.Category.FieldName6</td>
+                <td>@Model.FieldValue6</td>
+            </tr>
+        }
+
+        @if (@Model.Category.FieldName7 != null)
+        {
+            <tr>
+                <td>@Model.Category.FieldName7</td>
+                <td>@Model.FieldValue7</td>
+            </tr>
+        }
+
+        @if (@Model.Category.FieldName8 != null)
+        {
+            <tr>
+                <td>@Model.Category.FieldName8</td>
+                <td>@Model.FieldValue8</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+@Html.ActionLink("Dodaj do koszyka", "", "", null, null)
