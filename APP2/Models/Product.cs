@@ -13,7 +13,8 @@ namespace ShopLogin.Models
 
         [Required]
         [Index]
-        public float Price { get; set; }
+        [Range(0, 99999.99)]
+        public decimal Price { get; set; }
 
         [Required]
         [Index]

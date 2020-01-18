@@ -40,9 +40,9 @@ namespace ShopLogin.Controllers
             }
             else
             {
-                Product prod = _context.Products.FirstOrDefault(p => p.Id == productId);
                 _context.Baskets.Add(new Basket { ProductId = productId, CustomerId = customer.Id, AmountInBasket = 1 });
             }
+            customer.BasketValue += _context.Products.FirstOrDefault(p => p.Id == productId).Price;
 
             _context.SaveChanges();
 
@@ -57,8 +57,13 @@ namespace ShopLogin.Controllers
 
             var baskets = _context.Baskets.Where(b => b.CustomerId == customer.Id).ToList();
            
+            foreach(Basket b in baskets){
+                b.Product = _context.Products.SingleOrDefault(p => p.Id == b.ProductId);
+            }
 
-            return View(baskets);
+            customer.Baskets = baskets;
+
+            return View(customer);
         }
     }
 }

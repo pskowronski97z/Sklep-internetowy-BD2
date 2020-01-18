@@ -196,6 +196,10 @@
     <Compile Include="Migrations\202001180959171_firsttry.Designer.cs">
       <DependentUpon>202001180959171_firsttry.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001181933011_changeProductPriceToDecimal.cs" />
+    <Compile Include="Migrations\202001181933011_changeProductPriceToDecimal.Designer.cs">
+      <DependentUpon>202001181933011_changeProductPriceToDecimal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -302,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001180959171_firsttry.resx">
       <DependentUpon>202001180959171_firsttry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001181933011_changeProductPriceToDecimal.resx">
+      <DependentUpon>202001181933011_changeProductPriceToDecimal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

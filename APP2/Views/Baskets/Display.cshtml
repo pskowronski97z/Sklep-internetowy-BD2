@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ShopLogin.Models.Basket>
+﻿@model ShopLogin.Models.Customer
 
 @{
     ViewBag.Title = "Baskets";
@@ -6,7 +6,7 @@
 }
 
 <h2>Twój koszyk</h2>
-@if (!Model.Any())
+@if (!Model.Baskets.Any())
 {
     <p>Twój koszyk jest pusty.</p>
 }
@@ -20,13 +20,16 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var basket in Model)
+            @foreach (var basket in Model.Baskets)
             {
                 <tr>
-                    <td>@basket.ProductId</td>
+                    <td>@basket.Product.Name</td>
                     <td>@basket.AmountInBasket</td>
                 </tr>
             }
+
         </tbody>
+
     </table>
+    <p>Wartość koszyka: @Model.BasketValue złotych.</p>
 }
