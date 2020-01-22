@@ -32,4 +32,10 @@ else
 
     </table>
     <p>Wartość koszyka: @Model.BasketValue złotych.</p>
+    int someVal = 0;
+    if (Model.BasketValue != null)
+    {
+        someVal = (int) Model.BasketValue;
+    }
+    <p>@Html.ActionLink("Zapłać", "PayForBasket", "Baskets", new { somVal = someVal }, null)</p>
 }

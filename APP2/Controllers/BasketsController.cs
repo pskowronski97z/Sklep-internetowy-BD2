@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ShopLogin.Controllers
 {
+    [Authorize]
     public class BasketsController : Controller
     {
         private ApplicationDbContext _context;
@@ -24,6 +25,28 @@ namespace ShopLogin.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+
+        public ActionResult PayForBasket(int somVal)
+        {
+            while (true)
+            {
+                ApplicationUser userX = UserManager.FindById(User.Identity.GetUserId());
+                var customerX = _context.Customers.SingleOrDefault(c => c.UserId == userX.Id);
+                Basket basketX = _context.Baskets.FirstOrDefault(b => b.CustomerId == customerX.Id);
+                if (basketX == null) { break; }
+                _context.Baskets.Remove(basketX);
+                basketX = _context.Baskets.FirstOrDefault(d => d.CustomerId == customerX.Id);
+                _context.SaveChanges();
+            }
+            ApplicationUser user = UserManager.FindById(User.Identity.GetUserId());
+            var customer = _context.Customers.SingleOrDefault(c => c.UserId == user.Id);
+            Basket basket = _context.Baskets.FirstOrDefault(b => b.CustomerId == customer.Id);
+            customer.BasketValue = 0;
+            _context.SaveChanges();
+           // return HttpNotFound;
+            return RedirectToAction("Index", "Products");
         }
 
         public ActionResult AddToBasket(int productId)
@@ -56,8 +79,9 @@ namespace ShopLogin.Controllers
             var customer = _context.Customers.SingleOrDefault(c => c.UserId == user.Id);
 
             var baskets = _context.Baskets.Where(b => b.CustomerId == customer.Id).ToList();
-           
-            foreach(Basket b in baskets){
+
+            foreach (Basket b in baskets)
+            {
                 b.Product = _context.Products.SingleOrDefault(p => p.Id == b.ProductId);
             }
 
