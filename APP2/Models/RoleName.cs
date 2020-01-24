@@ -9,6 +9,6 @@ namespace ShopLogin.Models
     {
         public const string RoleAdmin = "Admin";
         public const string RoleClient = "Client";
-        public const string RoleAny = "Admin, Client";
+        public const string RoleAdminOrCustommer = RoleAdmin + "," + RoleClient;
     }
 }

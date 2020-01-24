@@ -29,7 +29,7 @@ namespace ShopLogin.Controllers
             _context.Dispose();
         }
 
-        [Authorize(Roles =RoleName.RoleClient)]
+        [Authorize(Roles =RoleName.RoleAdminOrCustommer)]//w innych miejscach moze byc to realizowane inaczej, to jest prawidlowy sposob, ktory wspieramy
         public ActionResult Details()
         {
             ApplicationUser user = UserManager.FindById(User.Identity.GetUserId());

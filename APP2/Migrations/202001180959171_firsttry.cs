@@ -8,15 +8,15 @@ namespace ShopLogin.Migrations
         public override void Up()
         {
             AddColumn("dbo.Customers", "UserId", c => c.String(maxLength: 128, storeType: "nvarchar"));
-            CreateIndex("dbo.Customers", "UserId");
-            AddForeignKey("dbo.Customers", "UserId", "dbo.AspNetUsers", "Id");
+       //     CreateIndex("dbo.Customers", "UserId");
+       //     AddForeignKey("dbo.Customers", "UserId", "dbo.AspNetUsers", "Id");
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.Customers", "UserId", "dbo.AspNetUsers");
-            DropIndex("dbo.Customers", new[] { "UserId" });
-            DropColumn("dbo.Customers", "UserId");
+        //    DropIndex("dbo.Customers", new[] { "UserId" });
+       // firsttry zakomentuj     DropColumn("dbo.Customers", "UserId");
         }
     }
 }

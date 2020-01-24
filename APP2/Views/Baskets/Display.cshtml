@@ -22,10 +22,12 @@ else
         <tbody>
             @foreach (var basket in Model.Baskets)
             {
-                <tr>
-                    <td>@basket.Product.Name</td>
-                    <td>@basket.AmountInBasket</td>
-                </tr>
+            <tr>
+                <td>@basket.Product.Name</td>
+                <td>@basket.AmountInBasket</td>
+                <td>@Html.ActionLink("Usuń", "deletos", "Baskets", new { productId = basket.ProductId }, null)</td>
+               
+            </tr>
             }
 
         </tbody>
@@ -38,4 +40,5 @@ else
         someVal = (int) Model.BasketValue;
     }
     <p>@Html.ActionLink("Zapłać", "PayForBasket", "Baskets", new { somVal = someVal }, null)</p>
+
 }

@@ -287,6 +287,7 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Baskets\Index.cshtml" />
     <Content Include="Views\Baskets\Display.cshtml" />
+    <Content Include="Views\Baskets\deletos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

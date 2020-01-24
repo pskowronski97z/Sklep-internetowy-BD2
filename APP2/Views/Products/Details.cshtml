@@ -82,4 +82,5 @@
     </tbody>
 
 </table>
-@Html.ActionLink("Dodaj do koszyka", "", "", null, null)
+
+@Html.ActionLink("Dodaj do koszyka", "AddToBasket", "Baskets", new { productId = @Model.Id }, null)
