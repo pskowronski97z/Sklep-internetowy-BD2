@@ -45,8 +45,8 @@ namespace ShopLogin.Controllers
             Basket basket = _context.Baskets.FirstOrDefault(b => b.CustomerId == customer.Id);
             customer.BasketValue = 0;
             _context.SaveChanges();
-           // return HttpNotFound;
-            return RedirectToAction("Index", "Products");
+            // return HttpNotFound;
+            return RedirectToAction("Display", "Baskets");
         }
 
         public ActionResult AddToBasket(int productId)
@@ -69,7 +69,7 @@ namespace ShopLogin.Controllers
 
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Products");
+            return RedirectToAction("Display", "Baskets");
         }
 
         public ActionResult RemoveFromBasket(int productId)

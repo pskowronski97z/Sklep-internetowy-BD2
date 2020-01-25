@@ -46,6 +46,8 @@ namespace ShopLogin.Models
 
         public String FieldValue8 { get; set; }
 
+        public String PictureId { get; set; }
+
         [Required]
         public int AmountInStore { get; set; }
 

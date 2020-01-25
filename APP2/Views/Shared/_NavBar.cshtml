@@ -15,10 +15,19 @@
             <a class="nav-link" href="/Customers/Registration">Rejestracja</a>
         </li>*@
 
-            <li class="nav-item">@Html.ActionLink("Produkty", "Index", "Products", null, new { @class = "nav-link" })</li>
+            <li class="nav-item">@Html.ActionLink("Laptopy", "Index", "Products", new { catId = 1 }, new { @class = "nav-link" })</li>
+            <li class="nav-item">@Html.ActionLink("Gry", "Index", "Products", new { catId = 2 }, new { @class = "nav-link" })</li>
+            <li class="nav-item">@Html.ActionLink("Powerbanki", "Index", "Products", new { catId = 3 }, new { @class = "nav-link" })</li>
+            <li class="nav-item">@Html.ActionLink("Pendrive'y", "Index", "Products", new { catId = 4 }, new { @class = "nav-link" })</li>
+            <li class="nav-item">@Html.ActionLink("Monitory", "Index", "Products", new { catId = 5 }, new { @class = "nav-link" })</li>
+            <li class="nav-item">@Html.ActionLink("Konsole", "Index", "Products", new { catId = 6 }, new { @class = "nav-link" })</li>
+            <li class="nav-item">@Html.ActionLink("Myszki", "Index", "Products", new { catId = 7 }, new { @class = "nav-link" })</li>
+            <li class="nav-item">@Html.ActionLink("Słuchawki", "Index", "Products", new { catId = 8 }, new { @class = "nav-link" })</li>
+            <li class="nav-item">@Html.ActionLink("Klawiatury", "Index", "Products", new { catId = 9 }, new { @class = "nav-link" })</li>
+
             @if (User.IsInRole(RoleName.RoleClient) || User.IsInRole(RoleName.RoleAdmin))
             {
-                <li class="nav-item">@Html.ActionLink("Koszyk", "Display", "Baskets", null, new { @class = "nav-link" })</li>
+                <li class="nav-item" style="text-align:right">@Html.ActionLink("Koszyk", "Display", "Baskets", null, new { @class = "nav-link" })</li>
             }
 
             @if (User.IsInRole(RoleName.RoleAdmin))

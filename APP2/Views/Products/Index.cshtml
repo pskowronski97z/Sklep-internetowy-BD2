@@ -5,29 +5,69 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Produkty</h2>
+<br />
+<br />
+
+
 @if (!Model.Any())
 {
     <p>Nie udało się wczytać produktów.</p>
 }
 else
 {
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th>Produkt</th>
-                <th>Categoria</th>
-            </tr>
-        </thead>
+    <table style="margin-left:260px">
         <tbody>
+
             @foreach (var product in Model)
             {
-                <tr>
-                    <td>@Html.ActionLink(product.Name, "Details", "Products", new { id = product.Id }, null)</td>
-                    <td>@product.Category.Name</td>
-                    <td>@Html.ActionLink("Dodaj do koszyka", "AddToBasket", "Baskets", new { productId = product.Id }, null)</td>
-                </tr>
-            }
-        </tbody>
+            <tr>
+                <td>
+                    <div class="card border-dark mb-3" style="width: 35rem">
+                        <div class="card-header">
+
+                            <h3>@Html.ActionLink(product.Name, "Details", "Products", new { id = product.Id }, new { @class = "nav-link", style = "color:black" })</h3>
+                            <h4><span style="margin-left:15px">@product.ProducerName</span></h4>
+
+                        </div>
+                        <div class="card-body">
+
+
+                            <table style="margin-left:15px">
+                                <tr>
+                                    <td style="padding-top:115px">
+                                        <h1><span>@product.Price zł</span></h1>
+
+                                        @if (product.AmountInStore != 0)
+                                        {
+
+                                            <h4><span style="color:limegreen">Dostępne!</span></h4>
+                                            <br />
+                                          
+                                            <br />
+                                            @Html.ActionLink("Dodaj do koszyka", "AddToBasket", "Baskets", new { productId = product.Id }, new { @class = "btn btn-warning btn-lg", style = "width:200px; text-align:center" })
+                                        }
+                                        else
+                                        {
+                                            <span style="color:red">Brak produktu</span>
+                                        }
+                                    </td>
+                                    <td>
+
+                                        <img src="@Url.Content("~/Content/"+@product.PictureId)" style="max-height:280px; padding-left:20px">
+                                    </td>
+
+
+                                </tr>
+                            </table>
+                            <br />
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+
+              }
+                
+            </tbody>
     </table>
 }

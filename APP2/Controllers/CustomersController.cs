@@ -44,10 +44,7 @@ namespace ShopLogin.Controllers
         {
             
             return View(new Customer());
-        }
-
-        
-
+        }       
         
         public ActionResult Index()
         {

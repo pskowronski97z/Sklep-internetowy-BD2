@@ -4,12 +4,14 @@
     ViewBag.Title = "Baskets";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<br />
 <h2>Twój koszyk</h2>
+<br />
 @if (!Model.Baskets.Any())
 {
     <p>Twój koszyk jest pusty.</p>
 }
+
 else
 {
     <table class="table table-bordered table-hover">
@@ -22,23 +24,25 @@ else
         <tbody>
             @foreach (var basket in Model.Baskets)
             {
-            <tr>
-                <td>@basket.Product.Name</td>
-                <td>@basket.AmountInBasket</td>
-                <td>@Html.ActionLink("Usuń", "deletos", "Baskets", new { productId = basket.ProductId }, null)</td>
-               
-            </tr>
+                <tr>
+                    <td>@basket.Product.Name</td>
+                    <td>@basket.AmountInBasket</td>
+                    <td>@Html.ActionLink("Usuń", "deletos", "Baskets", new { productId = basket.ProductId }, null)</td>
+
+                </tr>
             }
 
         </tbody>
 
     </table>
-    <p>Wartość koszyka: @Model.BasketValue złotych.</p>
+    <br />
+    <h4>Wartość koszyka: @Model.BasketValue zł</h4>
+    <br />
     int someVal = 0;
     if (Model.BasketValue != null)
     {
-        someVal = (int) Model.BasketValue;
+        someVal = (int)Model.BasketValue;
     }
-    <p>@Html.ActionLink("Zapłać", "PayForBasket", "Baskets", new { somVal = someVal }, null)</p>
+    <p>@Html.ActionLink("Kup i zapłać", "PayForBasket", "Baskets", new { somVal = someVal }, new { @class = "btn btn-warning btn-lg", style = "width:200px; text-align:center" })</p>
 
 }
