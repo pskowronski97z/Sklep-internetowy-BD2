@@ -93,6 +93,8 @@ namespace ShopLogin.Controllers
             var address = _context.Addresses.SingleOrDefault(a => a.Id == customer.AddressId);
 
 
+            user.Email = model.Email;
+
             customer.Email = model.Email;
             address.City = model.City;
             address.Street = model.Street;

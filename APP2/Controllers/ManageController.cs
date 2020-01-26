@@ -237,7 +237,6 @@ namespace ShopLogin.Controllers
             var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             var customer = _context.Customers.SingleOrDefault(c => c.UserId == user.Id);
-            customer.Password = model.NewPassword;
             if (result.Succeeded)
             {
                 

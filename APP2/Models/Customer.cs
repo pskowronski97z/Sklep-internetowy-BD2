@@ -42,9 +42,9 @@ namespace ShopLogin.Models
         [Required]
         public int AddressId { get; set; }
 
-        [Required]
-        [StringLength(60)]
-        public string Password { get; set; }
+        //[Required]
+        //[StringLength(60)]
+        //public string Password { get; set; }
       
         [Required]
         [StringLength(60)]

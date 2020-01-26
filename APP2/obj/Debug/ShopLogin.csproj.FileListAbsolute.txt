@@ -455,3 +455,4 @@ C:\Users\Patryk\Desktop\Uczelnia\Semestr 5\BazyDanych2\Sklep-internetowy-BD2\APP
 C:\Users\Patryk\Desktop\Uczelnia\Semestr 5\BazyDanych2\Sklep-internetowy-BD2\APP2\obj\Debug\ShopLogin.csprojAssemblyReference.cache
 C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP2\obj\Debug\ShopLogin.Migrations.PictureIdadded.resources
 C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP2\obj\Debug\ShopLogin.Migrations.testMigrationForPictureId.resources
+C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP2\obj\Debug\ShopLogin.Migrations.DeletePasswordInCustomerModel.resources

@@ -183,7 +183,7 @@ namespace ShopLogin.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
 
                 Address address = new Address { Street = model.Street, Building=model.Building, Apartment = model.Apartment, City =model.City,PostCode=model.PostCode };
-                Customer customer = new Customer { Login=model.Login, FirstName=model.FirstName, LastName=model.LastName, Email=model.Email,BirthDate=model.BirthDate,Password=model.Password,PhoneNumber=model.PhoneNumber,UserId=user.Id };
+                Customer customer = new Customer { Login=model.Login, FirstName=model.FirstName, LastName=model.LastName, Email=model.Email,BirthDate=model.BirthDate,PhoneNumber=model.PhoneNumber,UserId=user.Id };
 
                 _context.Addresses.Add(address);
                 _context.Customers.Add(customer);
