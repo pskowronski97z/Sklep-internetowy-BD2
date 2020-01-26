@@ -220,13 +220,10 @@ C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP2\bin\Microsoft.Owin.Security.M
 C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP2\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP2\obj\Debug\ShopLogin.csprojAssemblyReference.cache
-C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP2\obj\Debug\ShopLogin.Migrations.initial.resources
-C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP2\obj\Debug\ShopLogin.Migrations.firsttry.resources
 C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP2\obj\Debug\ShopLogin.csproj.GenerateResource.cache
 C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP2\obj\Debug\ShopLogin.csproj.CopyComplete
 C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP2\obj\Debug\ShopLogin.dll
 C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP2\obj\Debug\ShopLogin.pdb
-C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP2\obj\Debug\ShopLogin.Migrations.changeProductPriceToDecimal.resources
 C:\Users\Andrzej\Desktop\app2\Sklep-internetowy-BD2\APP2\bin\ShopLogin.dll.config
 C:\Users\Andrzej\Desktop\app2\Sklep-internetowy-BD2\APP2\bin\ShopLogin.dll
 C:\Users\Andrzej\Desktop\app2\Sklep-internetowy-BD2\APP2\bin\ShopLogin.pdb
@@ -456,3 +453,5 @@ C:\Users\Patryk\Desktop\Uczelnia\Semestr 5\BazyDanych2\Sklep-internetowy-BD2\APP
 C:\Users\Patryk\Desktop\Uczelnia\Semestr 5\BazyDanych2\Sklep-internetowy-BD2\APP2\obj\Debug\ShopLogin.Migrations.PictureIdadded.resources
 C:\Users\Patryk\Desktop\Uczelnia\Semestr 5\BazyDanych2\Sklep-internetowy-BD2\APP2\obj\Debug\ShopLogin.csproj.GenerateResource.cache
 C:\Users\Patryk\Desktop\Uczelnia\Semestr 5\BazyDanych2\Sklep-internetowy-BD2\APP2\obj\Debug\ShopLogin.csprojAssemblyReference.cache
+C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP2\obj\Debug\ShopLogin.Migrations.PictureIdadded.resources
+C:\Users\Werdon\Desktop\Sklep-internetowy-BD2\APP2\obj\Debug\ShopLogin.Migrations.testMigrationForPictureId.resources
