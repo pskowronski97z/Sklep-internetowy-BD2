@@ -7,13 +7,13 @@ namespace ShopLogin.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class changeProductPriceToDecimal : IMigrationMetadata
+    public sealed partial class PictureIdadded : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(changeProductPriceToDecimal));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PictureIdadded));
         
         string IMigrationMetadata.Id
         {
-            get { return "202001181933011_changeProductPriceToDecimal"; }
+            get { return "202001252212163_PictureId added"; }
         }
         
         string IMigrationMetadata.Source

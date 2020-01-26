@@ -23,10 +23,21 @@ namespace ShopLogin.Controllers
             _context.Dispose();
         }
 
-        public ViewResult Index()
+        public ViewResult Index(int catId)
         {
             var products = _context.Products.Include(p => p.Category).ToList();
-            return View(products);
+            List<Product> filteredProducts = new List<Product>();
+
+            
+                foreach (var product in products)
+                {
+                    if (product.CategoryId == catId)
+                    {                    
+                        filteredProducts.Add(product);
+                    }
+                }          
+
+            return View(filteredProducts);
         }
 
         public ActionResult Details(int id)

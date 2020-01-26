@@ -188,17 +188,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001180956304_initial.cs" />
-    <Compile Include="Migrations\202001180956304_initial.Designer.cs">
-      <DependentUpon>202001180956304_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001180959171_firsttry.cs" />
-    <Compile Include="Migrations\202001180959171_firsttry.Designer.cs">
-      <DependentUpon>202001180959171_firsttry.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001181933011_changeProductPriceToDecimal.cs" />
-    <Compile Include="Migrations\202001181933011_changeProductPriceToDecimal.Designer.cs">
-      <DependentUpon>202001181933011_changeProductPriceToDecimal.cs</DependentUpon>
+    <Compile Include="Migrations\202001252212163_PictureId added.cs" />
+    <Compile Include="Migrations\202001252212163_PictureId added.Designer.cs">
+      <DependentUpon>202001252212163_PictureId added.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -287,6 +279,7 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Baskets\Index.cshtml" />
     <Content Include="Views\Baskets\Display.cshtml" />
+    <Content Include="Views\Baskets\deletos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -301,14 +294,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001180956304_initial.resx">
-      <DependentUpon>202001180956304_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001180959171_firsttry.resx">
-      <DependentUpon>202001180959171_firsttry.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001181933011_changeProductPriceToDecimal.resx">
-      <DependentUpon>202001181933011_changeProductPriceToDecimal.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001252212163_PictureId added.resx">
+      <DependentUpon>202001252212163_PictureId added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

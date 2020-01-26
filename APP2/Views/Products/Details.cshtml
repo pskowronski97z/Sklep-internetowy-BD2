@@ -4,17 +4,50 @@
     ViewBag.Title = Model.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<br />
+<br />
+<br />
+<h1>@Model.ProducerName @Model.Name</h1>
+<br />
+<br />
+<table style="margin-left:200px">
+    <tr>
+        <td style="padding-top:120px">
+            <h1><span>@Model.Price zł</span></h1>
 
+            @if (@Model.AmountInStore != 0)
+            {
+
+                <h4><span style="color:limegreen">Dostępne!</span></h4>
+                <br />
+                <br />
+                <br />
+                @Html.ActionLink("Dodaj do koszyka", "AddToBasket", "Baskets", new { productId = Model.Id }, new { @class = "btn btn-warning btn-lg", style = "width:200px; text-align:center" })
+            }
+            else
+            {
+                <h4><span style="color:red">Dostępne!</span></h4>
+                <br />
+            }
+        </td>
+        <td>
+
+            <img src="@Url.Content("~/Content/"+@Model.PictureId)" style="max-height:350px; padding-left:100px">
+        </td>
+
+
+    </tr>
+
+
+
+</table>
+<br />
+<br />
 <h2>Szczegóły</h2>
-<p>Cena: @Model.Price zł</p>
+<br />
 
-<table class="table table-bordered table-hover">
-    <thead>
-        <tr>
-            <th>Field name</th>
-            <th>Field value</th>
-        </tr>
-    </thead>
+<table class="table table-bordered ">
+
     <tbody>
         @if (@Model.Category.FieldName1 != null)
         {
@@ -82,4 +115,4 @@
     </tbody>
 
 </table>
-@Html.ActionLink("Dodaj do koszyka", "", "", null, null)
+

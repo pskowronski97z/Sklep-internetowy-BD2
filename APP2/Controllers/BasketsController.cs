@@ -45,8 +45,8 @@ namespace ShopLogin.Controllers
             Basket basket = _context.Baskets.FirstOrDefault(b => b.CustomerId == customer.Id);
             customer.BasketValue = 0;
             _context.SaveChanges();
-           // return HttpNotFound;
-            return RedirectToAction("Index", "Products");
+            // return HttpNotFound;
+            return RedirectToAction("Display", "Baskets");
         }
 
         public ActionResult AddToBasket(int productId)
@@ -69,8 +69,64 @@ namespace ShopLogin.Controllers
 
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Products");
+            return RedirectToAction("Display", "Baskets");
         }
+
+        public ActionResult RemoveFromBasket(int productId)
+        {
+            ApplicationUser user = UserManager.FindById(User.Identity.GetUserId());
+            var customer = _context.Customers.SingleOrDefault(c => c.UserId == user.Id);
+            Basket basket = _context.Baskets.FirstOrDefault(b => b.ProductId == productId && b.CustomerId == customer.Id);
+
+            customer.BasketValue -= _context.Products.FirstOrDefault(p => p.Id == productId).Price;
+            if (basket != null)
+            {
+                if(basket.AmountInBasket > 0)
+                {
+                    basket.AmountInBasket -= 1;
+                }
+                if (basket.AmountInBasket == 0)
+                {
+                    _context.Baskets.Remove(basket);
+                    _context.SaveChanges();
+                }
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("Display", "Baskets");
+       //     return RedirectToAction("Index", "Products");
+
+        }
+
+        public ActionResult RemoveBasket(int productId)
+        {
+            ApplicationUser user = UserManager.FindById(User.Identity.GetUserId());
+            var customer = _context.Customers.SingleOrDefault(c => c.UserId == user.Id);
+            Basket basket = _context.Baskets.FirstOrDefault(b => b.ProductId == productId && b.CustomerId == customer.Id);
+
+
+            for (int i = 0; i< basket.AmountInBasket;i++)
+            {
+                customer.BasketValue -= _context.Products.FirstOrDefault(p => p.Id == productId).Price;
+            }
+            
+            if (basket != null)
+            {
+                if (basket.AmountInBasket > 0)
+                {
+                    basket.AmountInBasket -= 1;
+                }
+                if (basket.AmountInBasket == 0)
+                {
+                    _context.Baskets.Remove(basket);
+                    _context.SaveChanges();
+                }
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("Display", "Baskets");
+        }
+
 
         public ActionResult Display()
         {
@@ -88,6 +144,13 @@ namespace ShopLogin.Controllers
             customer.Baskets = baskets;
 
             return View(customer);
+        }
+
+        public ActionResult deletos(int productId)
+        {
+            //return HttpNotFound();
+            ViewBag.productId = productId;
+            return View();
         }
     }
 }

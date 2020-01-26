@@ -1,0 +1,16 @@
+UPDATE products SET PictureId = 'tuf505.png' WHERE id=4; 
+UPDATE products SET PictureId = 'dellg3.png' WHERE id=5; 
+UPDATE products SET PictureId = 'macbook.png' WHERE id=6; 
+UPDATE products SET PictureId = 'ds.png' WHERE id=1; 
+UPDATE products SET PictureId = 'sw.png' WHERE id=2; 
+UPDATE products SET PictureId = 'gts.png' WHERE id=3; 
+UPDATE products SET PictureId = 'p23.png' WHERE id=7; 
+UPDATE products SET PictureId = 'vp2.png' WHERE id=8; 
+UPDATE products SET PictureId = 'ps4.png' WHERE id=9; 
+UPDATE products SET PictureId = 'xone.png' WHERE id=10; 
+UPDATE products SET PictureId = 'mxm.png' WHERE id=11; 
+UPDATE products SET PictureId = 'naga.png' WHERE id=12; 
+UPDATE products SET PictureId = 'hd4.png' WHERE id=13; 
+UPDATE products SET PictureId = 'tiam.png' WHERE id=14; 
+UPDATE products SET PictureId = 'magic.png' WHERE id=15; 
+UPDATE products SET PictureId = 'k68.png' WHERE id=16; 

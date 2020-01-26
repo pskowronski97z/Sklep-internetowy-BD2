@@ -1,0 +1,24 @@
+﻿@*@model ShopLogin.Models.Basket*@
+
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Czy na pewno chcesz usunąć produkt z koszyka?
+        </dt>
+
+    </dl>
+</div>
+<p>
+
+
+    <p1>@Html.ActionLink("Usuń wszystkie", "RemoveBasket", new { productId = ViewBag.productId }, null)</p1>
+<p>     </p>
+<p2>@Html.ActionLink("Usuń 1 sztukę", "RemoveFromBasket", new { productId = ViewBag.productId }, null)</p2>
+<p>     </p>
+<p3>@Html.ActionLink("Powrót", "Display", "Baskets", null, null)</p3>
+
+
+
+</p>
