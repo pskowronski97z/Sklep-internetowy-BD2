@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -15,9 +17,11 @@ namespace ShopLogin.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext _context;
 
         public ManageController()
         {
+            _context = new ApplicationDbContext();
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -231,15 +235,21 @@ namespace ShopLogin.Controllers
                 return View(model);
             }
             var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            var customer = _context.Customers.SingleOrDefault(c => c.UserId == user.Id);
+            customer.Password = model.NewPassword;
             if (result.Succeeded)
             {
-                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                
                 if (user != null)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
                 return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
             }
+            //_context.Customers.AddOrUpdate(customer);
+            _context.Entry(customer).State = EntityState.Modified;
+            _context.SaveChanges();
             AddErrors(result);
             return View(model);
         }

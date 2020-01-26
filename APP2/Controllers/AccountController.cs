@@ -56,6 +56,17 @@ namespace ShopLogin.Controllers
             }
         }
 
+        //public ActionResult ModifyData()
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //public ActionResult ModifyData(RegisterViewModel model)
+        //{
+        //    var user = _context.
+        //}
+
         //
         // GET: /Account/Login
         [AllowAnonymous]

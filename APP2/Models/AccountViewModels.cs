@@ -63,6 +63,25 @@ namespace ShopLogin.Models
         public bool RememberMe { get; set; }
     }
 
+    public class ModifyDataViewModel
+    {
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+        ////adres
+        public string City { get; set; }
+        public string Street { get; set; }
+        public string Building { get; set; }
+        public string Apartment { get; set; }
+        public string PostCode { get; set; }
+        ////Customer
+        public string PhoneNumber { get; set; }
+        public string Login { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+    }
+
     public class RegisterViewModel
     {
         [Required]

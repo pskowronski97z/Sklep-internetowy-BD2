@@ -60,5 +60,54 @@ namespace ShopLogin.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult ModifyData()
+        {
+            ApplicationUser user = UserManager.FindById(User.Identity.GetUserId());
+            var customer = _context.Customers.SingleOrDefault(c => c.UserId == user.Id);
+            var address = _context.Addresses.SingleOrDefault(a => a.Id == customer.AddressId);
+            customer.Address = address;
+
+            ModifyDataViewModel model = new ModifyDataViewModel
+            {
+                Email = customer.Email,
+                City = address.City,
+                Street = address.Street,
+                Building = address.Building,
+                Apartment = address.Apartment,
+                PostCode = address.PostCode,
+                PhoneNumber = customer.PhoneNumber,
+                Login = customer.Login,
+                FirstName = customer.FirstName,
+                LastName = customer.LastName
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult ModifyData(ModifyDataViewModel model)
+        {
+            ApplicationUser user = UserManager.FindById(User.Identity.GetUserId());
+            var customer = _context.Customers.SingleOrDefault(c => c.UserId == user.Id);
+            var address = _context.Addresses.SingleOrDefault(a => a.Id == customer.AddressId);
+
+
+            customer.Email = model.Email;
+            address.City = model.City;
+            address.Street = model.Street;
+            address.Building = model.Building;
+            address.Apartment = model.Apartment;
+            address.PostCode = model.PostCode;
+            customer.PhoneNumber = model.PhoneNumber;
+            customer.Login = model.Login;
+            customer.FirstName = model.FirstName;
+            customer.LastName = model.LastName;
+
+            _context.SaveChanges();
+
+
+            return RedirectToAction("Details", "Customers");
+        }
     }
 }
