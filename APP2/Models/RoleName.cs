@@ -12,3 +12,5 @@ namespace ShopLogin.Models
         public const string RoleAdminOrCustommer = RoleAdmin + "," + RoleClient;
     }
 }
+
+

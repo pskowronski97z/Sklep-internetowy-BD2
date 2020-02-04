@@ -113,7 +113,8 @@ namespace ShopLogin.Controllers
             if(customer != null)
             {
                 ApplicationUser user = UserManager.FindById(customer.UserId);
-                return await SignInManager.PasswordSignInAsync(user.Email, model.Password, model.RememberMe, shouldLockout: false);
+                return await SignInManager.PasswordSignInAsync(
+                    user.Email, model.Password, model.RememberMe, shouldLockout: false);
             }
             
             return await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
